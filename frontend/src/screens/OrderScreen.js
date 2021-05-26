@@ -202,6 +202,7 @@ const OrderScreen = ({ match, history }) => {
                     <Loader />
                   ) : (
                     <PayPalButton
+                      //concurrency="EUR"
                       amount={order.totalPrice}
                       onSuccess={successPaymentHandler}
                     />

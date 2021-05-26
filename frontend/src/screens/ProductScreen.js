@@ -12,6 +12,8 @@ import {
 } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 
+import Scene from '../components/Scene'
+
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
   const [rating, setRating] = useState(0)
@@ -62,6 +64,7 @@ const ProductScreen = ({ history, match }) => {
       <Link className='btn btn-light my-3' to='/'>
         Go Back
       </Link>
+
       {loading ? (
         <Loader />
       ) : error ? (
@@ -71,7 +74,8 @@ const ProductScreen = ({ history, match }) => {
           <Meta title={product.name} />
           <Row>
             <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
+              {/* <Image src={product.image} alt={product.name} fluid /> */}
+              <Scene product={product} />
             </Col>
             <Col md={3}>
               <ListGroup variant='flush'>
