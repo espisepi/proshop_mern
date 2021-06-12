@@ -19,11 +19,14 @@ import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
 
+import SceneBackground from './components/SceneBackground'
+
 const App = () => {
   return (
     <Router>
+      <SceneBackground style={{width:'100%', height: '100vh', backgroundColor: 'black', position:'fixed'}} />
       <Header />
-      <main className='py-3'>
+      <main className='py-3 bg-transparent '>
         <Container>
           <Route path='/order/:id' component={OrderScreen} />
           <Route path='/shipping' component={ShippingScreen} />

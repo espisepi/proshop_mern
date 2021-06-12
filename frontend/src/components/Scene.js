@@ -27,7 +27,7 @@ const TShirt = ({img}) => {
 
     return (
         <group>
-            <primitive object={sphere} rotation={[Math.PI,0,0]} />
+            <primitive object={sphere} rotation={[Math.PI,0,0]} scale={[5,5,5]}/>
             {/* <mesh geometry={sphere.geometry} material={sphere.material} material-map={texture} scale={[10,10,10]} rotation={[Math.PI,0,0]} /> */}
             <mesh geometry={gltf.nodes.Shirt_on_Hanger_1.geometry} material={gltf.nodes.Shirt_on_Hanger_1.material} material-map={texture} />
         </group>
@@ -36,9 +36,10 @@ const TShirt = ({img}) => {
 
 const Scene = ({product}) => {
     return (
-        <Canvas style={{height:'100vh'}}>
+        <Canvas style={{height:'100vh', borderRadius:'25px'}}>
             <Suspense fallback={null}>
-                <ambientLight />
+                <ambientLight intensity={0.2} />
+                <pointLight intensity={0.5} position={0,0.5,0.5} />
                 <group scale={[2,2,2]}>
                     <TShirt img={product.image} />
                 </group>
