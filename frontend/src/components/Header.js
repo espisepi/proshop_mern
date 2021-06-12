@@ -17,7 +17,7 @@ const Header = () => {
   }
 
   return (
-    <header>
+    <header style={{opacity:'0.9'}}>
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
