@@ -19,7 +19,7 @@ import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
 
-import SceneBackground from './components/SceneBackground'
+import SceneBackground from './components/sceneBackground/SceneBackground'
 
 const App = () => {
   return (
