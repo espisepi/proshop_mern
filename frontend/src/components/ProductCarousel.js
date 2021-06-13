@@ -21,7 +21,7 @@ const ProductCarousel = () => {
   ) : error ? (
     <Message variant='danger'>{error}</Message>
   ) : (
-    <Carousel pause='hover' className='bg-dark' style={{opacity:'0.9'}}>
+    <Carousel pause='hover' className='bg-dark' style={{opacity:'0.9', borderRadius:'25px'}}>
       {products.map((product) => (
         <Carousel.Item key={product._id}>
           <Link to={`/product/${product._id}`}>

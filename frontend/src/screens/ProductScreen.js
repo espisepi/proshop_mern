@@ -12,7 +12,7 @@ import {
 } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 
-import Scene from '../components/Scene'
+import Scene from '../components/sceneProduct/Scene'
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1)
@@ -77,27 +77,27 @@ const ProductScreen = ({ history, match }) => {
               {/* <Image src={product.image} alt={product.name} fluid /> */}
               <Scene product={product} />
             </Col>
-            <Col md={3}>
+            <Col md={3} style={{opacity:'0.9', borderRadius:'25px', backgroundColor:'#2f343a', color:'white'}}>
               <ListGroup variant='flush'>
-                <ListGroup.Item>
+                <ListGroup.Item style={{backgroundColor:'transparent'}}>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item style={{backgroundColor:'transparent'}}>
                   <Rating
                     value={product.rating}
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item style={{backgroundColor:'transparent'}}>Price: ${product.price}</ListGroup.Item>
+                <ListGroup.Item style={{backgroundColor:'transparent'}}>
                   Description: {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
             <Col md={3}>
-              <Card>
+              <Card style={{borderRadius:'25px', opacity:'0.9', backgroundColor:'#2f343a', color:'white'}}>
                 <ListGroup variant='flush'>
-                  <ListGroup.Item>
+                  <ListGroup.Item style={{backgroundColor:'transparent'}}>
                     <Row>
                       <Col>Price:</Col>
                       <Col>
@@ -106,7 +106,7 @@ const ProductScreen = ({ history, match }) => {
                     </Row>
                   </ListGroup.Item>
 
-                  <ListGroup.Item>
+                  <ListGroup.Item style={{backgroundColor:'transparent'}}>
                     <Row>
                       <Col>Status:</Col>
                       <Col>
@@ -116,7 +116,7 @@ const ProductScreen = ({ history, match }) => {
                   </ListGroup.Item>
 
                   {product.countInStock > 0 && (
-                    <ListGroup.Item>
+                    <ListGroup.Item style={{backgroundColor:'transparent'}}>
                       <Row>
                         <Col>Qty</Col>
                         <Col>
@@ -138,7 +138,7 @@ const ProductScreen = ({ history, match }) => {
                     </ListGroup.Item>
                   )}
 
-                  <ListGroup.Item>
+                  <ListGroup.Item style={{backgroundColor:'transparent'}}>
                     <Button
                       onClick={addToCartHandler}
                       className='btn-block'
@@ -152,9 +152,9 @@ const ProductScreen = ({ history, match }) => {
               </Card>
             </Col>
           </Row>
-          <Row>
+          <Row style={{opacity:'0.9'}}>
             <Col md={6}>
-              <h2>Reviews</h2>
+              <h2 style={{color:'white'}}>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant='flush'>
                 {product.reviews.map((review) => (
