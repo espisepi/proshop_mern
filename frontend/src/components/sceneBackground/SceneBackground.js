@@ -6,7 +6,7 @@ import * as THREE from 'three'
 
 
 export default function SceneBackground({ style }) {
-    const [clicked, setClicked] = useState(true)
+    const [clicked, setClicked] = useState(false)
     const [ready, setReady] = useState(false)
     const store = { clicked, setClicked, ready, setReady }
     return (
@@ -26,7 +26,7 @@ export default function SceneBackground({ style }) {
                 <Intro start={ready && clicked} set={setReady} />
             </Suspense>
         </Canvas>
-        {/* <Overlay {...store} /> */}
+        <Overlay {...store} />
         </>
     )
 }
@@ -72,9 +72,14 @@ function Intro({ start, set }) {
 function Overlay({ ready, clicked, setClicked }) {
     return (
       <>
-        <div className={`fullscreen bg ${ready ? 'ready' : 'notready'} ${clicked && 'clicked'}`}>
-          <div onClick={() => ready && setClicked(true)}>{!ready ? 'loading' : 'click to continue'}</div>
-        </div>
+      { clicked 
+                ? (null)
+                : (
+                  <div style={{zIndex:20000, height:'100vh', width:'100%', position:'fixed', backgroundColor:'#2f343a', display:'flex', alignItems:'center', justifyContent:'center', color:'white' }}>
+                    <h1 onClick={() => ready && setClicked(true)} style={{ cursor: !ready ? 'auto' : 'pointer' }}>{!ready ? 'loading' : 'click to continue'}</h1>
+                  </div>
+                )
+      }
       </>
     )
   }
