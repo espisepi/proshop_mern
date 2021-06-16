@@ -75,8 +75,8 @@ function Overlay({ ready, clicked, setClicked }) {
       { clicked 
                 ? (null)
                 : (
-                  <div style={{zIndex:20000, height:'100vh', width:'100%', position:'fixed', backgroundColor:'#2f343a', display:'flex', alignItems:'center', justifyContent:'center', color:'white' }}>
-                    <h1 onClick={() => ready && setClicked(true)} style={{ cursor: !ready ? 'auto' : 'pointer' }}>{!ready ? 'loading' : 'click to continue'}</h1>
+                  <div style={{zIndex:20000, height:'100vh', width:'100%', position:'fixed', backgroundColor:'#2f343a', display:'flex', alignItems:'center', justifyContent:'center' }}>
+                    <h1 onClick={() => ready && setClicked(true)} style={{ cursor: !ready ? 'auto' : 'pointer', color:'white' }}>{!ready ? 'loading' : 'click to continue'}</h1>
                   </div>
                 )
       }
