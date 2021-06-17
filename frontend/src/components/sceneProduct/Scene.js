@@ -10,7 +10,7 @@ const TShirt = ({img}) => {
 
     const { camera } = useThree()
     useEffect(() => {
-        camera.position.z = 2
+        camera.position.z = 1.5
     }, [])
 
     const sphere = useMemo(() => {
@@ -27,7 +27,7 @@ const TShirt = ({img}) => {
 
     return (
         <group>
-            <primitive object={sphere} rotation={[Math.PI,0,0]} scale={[5,5,5]}/>
+            {/* <primitive object={sphere} rotation={[Math.PI,0,0]} scale={[5,5,5]}/> */}
             {/* <mesh geometry={sphere.geometry} material={sphere.material} material-map={texture} scale={[10,10,10]} rotation={[Math.PI,0,0]} /> */}
             <mesh geometry={gltf.nodes.Shirt_on_Hanger_1.geometry} material={gltf.nodes.Shirt_on_Hanger_1.material} material-map={texture} />
         </group>
@@ -44,7 +44,7 @@ const Scene = ({product}) => {
                     <TShirt img={product.image} />
                 </group>
             </Suspense>
-            <OrbitControls />
+            <OrbitControls autoRotate={true} />
         </Canvas>
     )
 }
